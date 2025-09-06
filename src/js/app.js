@@ -57,8 +57,6 @@ function addPopover(e) {
   actualMessages.forEach((message) => tooltipFactory.removeTooltip(message.id));
   actualMessages = [];
   
-  const elements = form.elements;
-  
   if (e.target.dataset.popover) {
     const popover = getPopover(e.target);
     showTooltip(popover, e.target);
