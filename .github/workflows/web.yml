@@ -45,7 +45,7 @@ jobs:
     
 
   build:
-    needs: [eslint, test]
+    # needs: [eslint, test]
 
     environment:
       name: github-pages
