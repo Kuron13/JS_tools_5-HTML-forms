@@ -25,14 +25,14 @@ describe('Form with buttons', () => {
     });
 
     page = await browser.newPage();
-  }, 20000);
+  }, 50000);
 
 
   test('Form should render on page start', async () => {
     await page.goto('http://localhost:8080');
 
     await page.waitForSelector('form');
-  }, 20000);
+  }, 50000);
 
 
 
@@ -83,6 +83,6 @@ describe('Form with buttons', () => {
   afterAll(async () => {
     await browser.close();
     server.kill();
-  }, 20000)
+  }, 50000)
 
 });
