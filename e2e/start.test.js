@@ -37,6 +37,9 @@ describe('Page start', () => {
     await page.goto('http://localhost:8080');
 
     await page.waitForSelector('body');
+
+    const bodyExists = await page.$('body');
+    expect(bodyExists).toBeTruthy();
   }, 50000);
 
   afterAll(async () => {
