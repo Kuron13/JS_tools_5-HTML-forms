@@ -39,6 +39,9 @@ describe('Form with buttons', () => {
     await page.goto('http://localhost:8080');
 
     await page.waitForSelector('form');
+    
+    const bodyExists = await page.$('body');
+    expect(bodyExists).toBeTruthy();
   }, 20000);
 
 
