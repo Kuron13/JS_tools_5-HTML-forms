@@ -51,13 +51,18 @@ describe('Form with buttons', () => {
     await page.waitForSelector('form');
     const form = await page.$('.form')
     const buttons = await form.$$('.btn')
+
+    const buttonsWithPopover = []
     for (const button of buttons) {
       if (button.popover) {
-        await button.click();
-        await page.waitForSelector('.popover-form')
-        const popoverExists = await page.$('popover-form');
-        expect(popoverExists).toBeTruthy();
+        buttonsWithPopover.append(button)
       };
+    
+    for (const button of buttonsWithPopover) {
+      await button.click();
+      await page.waitForSelector('.popover-form')
+      const popoverExists = await page.$('popover-form');
+      expect(popoverExists).toBeTruthy();
     };
   }, 50000);
 
