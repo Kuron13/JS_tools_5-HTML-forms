@@ -18,9 +18,16 @@ describe('Page start', () => {
     });
     
     browser = await puppeteer.launch({
-      headless: false,
-      slowMo: 100,
-      devtools: true,
+      headless: true,
+      args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage',
+        '--disable-accelerated-javascript',
+        '--disable-gpu',
+        '--disable-features=AllWebKitFeatures'
+      ],
+      timeout: 60000
     });
 
     page = await browser.newPage();
