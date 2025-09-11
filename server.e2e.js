@@ -8,6 +8,6 @@ server.listen(8080, "localhost", (err) => {
     return;
   }
   if (process.send) {
-    process.send(message: "ok");
+    process.send("ok");
   }
 });
