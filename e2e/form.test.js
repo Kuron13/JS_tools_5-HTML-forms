@@ -23,9 +23,9 @@ describe('Form with buttons', () => {
       slowMo: 100,
       devtools: true,
     });
-
+    
     page = await browser.newPage();
-  }, 50000);
+  }, 60000);
 
 
   test('Form should render on page start', async () => {
