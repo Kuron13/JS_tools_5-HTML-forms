@@ -18,21 +18,17 @@ describe('Form with buttons', () => {
     });
     
     
-    browser = await puppeteer.launch({
-      headless: false,
-      slowMo: 100,
-      devtools: true,
-    });
+    browser = await puppeteer.launch({});
     
     page = await browser.newPage();
-  }, 60000);
+  });
 
 
   test('Form should render on page start', async () => {
     await page.goto('http://localhost:8080');
 
     await page.waitForSelector('form');
-  }, 50000);
+  }, 20000);
 
 
 
@@ -83,6 +79,6 @@ describe('Form with buttons', () => {
   afterAll(async () => {
     await browser.close();
     server.kill();
-  }, 50000)
+  })
 
 });
