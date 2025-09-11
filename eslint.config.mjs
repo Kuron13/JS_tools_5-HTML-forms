@@ -1,10 +1,11 @@
 import globals from "globals";
 import pluginJs from "@eslint/js";
-import jest from "eslint-plugin-jest";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
+import jestPlugin from "eslint-plugin-jest"; // Явно импортируем плагин
 
 export default [
   {
+    plugins: ["jest"], // Добавляем плагин jest в список плагинов
     languageOptions: {
       globals: {
         ...globals.browser,
@@ -25,7 +26,7 @@ export default [
   },
   pluginJs.configs.recommended,
   eslintPluginPrettierRecommended,
-  
+
   // Особые правила для e2e тестов
   {
     files: ["e2e/**/*.test.js", "e2e/**/*.spec.js"],
@@ -37,13 +38,13 @@ export default [
       "jest/no-focused-tests": "error"
     }
   },
-  
+
   // Особые правила для всех тестовых файлов
   {
     files: ["**/*.test.js", "**/*.spec.js"],
-    ...jest.configs["flat/recommended"],
+    extends: jestPlugin.configs["flat/recommended"],
     rules: {
-      ...jest.configs["flat/recommended"].rules,
+      ...jestPlugin.configs["flat/recommended"].rules,
       "jest/no-disabled-tests": "warn",
       "jest/no-identical-title": "error",
       "jest/no-focused-tests": "error"
