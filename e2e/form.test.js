@@ -32,6 +32,9 @@ describe('Form with buttons', () => {
     });
     
     page = await browser.newPage();
+    
+    const bodyExists = await page.$('body');
+    expect(bodyExists).toBeTruthy();
   });
 
 
@@ -55,10 +58,10 @@ describe('Form with buttons', () => {
       if (button.popover) {
         await button.click();
         await page.waitForSelector('.popover-form')
-        const popoverExists = await page.$('popover-form');
-        expect(popoverExists).toBeTruthy();
       };
     };
+    const popoverExists = await page.$('popover-form');
+    expect(popoverExists).toBeTruthy();
   }, 50000);
 
   
