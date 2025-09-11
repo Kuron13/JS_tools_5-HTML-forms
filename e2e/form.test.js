@@ -57,6 +57,7 @@ describe('Form with buttons', () => {
       if (button.popover) {
         buttonsWithPopover.append(button)
       };
+    };
     
     for (const button of buttonsWithPopover) {
       await button.click();
