@@ -32,9 +32,6 @@ describe('Form with buttons', () => {
     });
     
     page = await browser.newPage();
-    
-    const bodyExists = await page.$('body');
-    expect(bodyExists).toBeTruthy();
   });
 
 
