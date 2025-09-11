@@ -55,6 +55,8 @@ describe('Form with buttons', () => {
       if (button.popover) {
         await button.click();
         await page.waitForSelector('.popover-form')
+        const popoverExists = await page.$('popover-form');
+        expect(popoverExists).toBeTruthy();
       };
     };
   }, 50000);
@@ -71,6 +73,8 @@ describe('Form with buttons', () => {
         await page.waitForSelector('.popover-form')
         await button.click();
         await page.waitForSelector('.popover-form', {hidden: true})
+        const popoverExists = await page.$('popover-form');
+        expect(popoverExists).toBeFalsy();
       };
     };
   }, 50000);
@@ -85,6 +89,8 @@ describe('Form with buttons', () => {
       if (!button.popover) {
         await button.click();
         await page.waitForSelector('.popover-form', {hidden: true})
+        const popoverExists = await page.$('popover-form');
+        expect(popoverExists).toBeFalsy();
       };
     };
   }, 50000);
