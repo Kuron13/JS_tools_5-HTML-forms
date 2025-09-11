@@ -7,7 +7,7 @@ describe('Form with buttons', () => {
   let server;
 
   beforeAll(async () => {
-    server = fork(`${./server/server.e2e.js}`);
+    server = fork(`${__dirname}/server/server.e2e.js}`);
     await new Promise((resolve, reject) => {
       server.on("error", reject);
       server.on("message", (message) => {
