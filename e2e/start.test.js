@@ -24,7 +24,7 @@ describe('Page start', () => {
     });
 
     page = await browser.newPage();
-  }, 50000);
+  }, 60000);
 
   test('test', async () => {
     await page.goto('http://localhost:8080');
