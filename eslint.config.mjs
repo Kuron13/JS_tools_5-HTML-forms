@@ -5,12 +5,16 @@ import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended"
 
 export default [
   {
-    languageOptions: { globals: { ...globals.browser, ...globals.node,
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
         page: true, // Добавляем глобальные переменные для puppeteer
         browser: true,
-        context: true} },
-  },
-  ignores: ["dist/*", "coverage/*", "e2e/reports/*"],
+        context: true
+      }
+    },
+    ignores: ["dist/*", "coverage/*", "e2e/reports/*"],
     rules: {
       "no-unused-vars": "warn",
       "no-console": "off", // Разрешаем console для отладки тестов
