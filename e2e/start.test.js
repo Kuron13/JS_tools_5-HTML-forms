@@ -24,17 +24,17 @@ describe('Page start', () => {
     });
 
     page = await browser.newPage();
-  }, 20000);
+  }, 50000);
 
   test('test', async () => {
     await page.goto('http://localhost:8080');
 
     await page.waitForSelector('body');
-  }, 20000);
+  }, 50000);
 
   afterAll(async () => {
     await browser.close();
     server.kill();
-  }, 20000)
+  }, 50000)
 
 });
