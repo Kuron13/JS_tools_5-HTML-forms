@@ -33,7 +33,7 @@ describe('Page start', () => {
     page = await browser.newPage();
   }, 60000);
 
-  test('test', async () => {
+  test('Body', async () => {
     await page.goto('http://localhost:8080');
 
     await page.waitForSelector('body');
