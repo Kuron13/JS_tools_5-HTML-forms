@@ -7,7 +7,7 @@ describe('Page start', () => {
   let server;
 
   beforeAll(async () => {
-    server = fork(`${./server/server.e2e.js}`);
+    server = fork(`${../server/server.e2e.js}`);
     await new Promise((resolve, reject) => {
       server.on("error", reject);
       server.on("message", (message) => {
