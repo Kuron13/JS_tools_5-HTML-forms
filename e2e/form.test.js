@@ -18,7 +18,18 @@ describe('Form with buttons', () => {
     });
     
     
-    browser = await puppeteer.launch({});
+    browser = await puppeteer.launch({
+      headless: true,
+      args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage',
+        '--disable-accelerated-javascript',
+        '--disable-gpu',
+        '--disable-features=AllWebKitFeatures'
+      ],
+      timeout: 60000
+    });
     
     page = await browser.newPage();
   });
