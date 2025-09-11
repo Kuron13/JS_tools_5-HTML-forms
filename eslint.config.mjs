@@ -6,24 +6,32 @@ import jestPlugin from "eslint-plugin-jest";
 export default [
   {
     plugins: {
-      jest: jestPlugin // Правильно указываем плагин как объект
+      jest: jestPlugin
     },
     languageOptions: {
       globals: {
         ...globals.browser,
         ...globals.node,
-        page: true, // Добавляем глобальные переменные для puppeteer
+        page: true,
         browser: true,
-        context: true
+        context: true,
+        describe: true,
+        test: true,
+        beforeEach: true,
+        afterEach: true,
+        beforeAll: true,
+        afterAll: true,
+        expect: true
       }
     },
     ignores: ["dist/*", "coverage/*", "e2e/reports/*"],
     rules: {
       "no-unused-vars": "warn",
-      "no-console": "off", // Разрешаем console для отладки тестов
-      "jest/no-conditional-expect": "off", // Отключаем для e2e
+      "no-console": "off",
+      "jest/no-conditional-expect": "off",
       "jest/valid-title": "error",
-      "jest/expect-expect": "error"
+      "jest/expect-expect": "error",
+      "jest/no-standalone-expect": "off"
     }
   },
   pluginJs.configs.recommended,
@@ -33,7 +41,7 @@ export default [
   {
     files: ["e2e/**/*.test.js", "e2e/**/*.spec.js"],
     rules: {
-      "jest/expect-expect": "off", // Отключаем для e2e тестов
+      "jest/expect-expect": "off",
       "jest/no-conditional-expect": "off",
       "jest/prefer-expect-assertions": "off",
       "jest/no-disabled-tests": "warn",
