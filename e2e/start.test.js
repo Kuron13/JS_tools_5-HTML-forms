@@ -1,10 +1,22 @@
 import puppeteer from 'puppeteer';
+import { fork } from "child_process";
 
 describe('Page start', () => {
   let browser;
   let page;
+  let server;
 
-  beforeEach(async () => {
+  beforeAll(async () => {
+    server = fork(`${./server/server.e2e.js}`);
+    await new Promise((resolve, reject) => {
+      server.on("error", reject);
+      server.on("message", (message) => {
+        if (message === "ok") {
+          resolve();
+        }
+      });
+    });
+    
     browser = await puppeteer.launch({
       headless: false,
       slowMo: 100,
@@ -22,6 +34,7 @@ describe('Page start', () => {
 
   afterAll(async () => {
     await browser.close();
+    server.kill();
   }, 20000)
 
 });
